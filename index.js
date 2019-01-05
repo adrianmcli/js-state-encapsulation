@@ -38,8 +38,8 @@ const z = MyObj3(0);
 
 console.log([x.myVal, y.myVal, z.get()]); // [ 0, 0, 0 ]
 
-x.set(2)
-y.set(2)
-z.set(2)
+x.set(2);
+y.set(2);
+z.set(2);
 
 console.log([x.myVal, y.myVal, z.get()]); // [ 2, 2, 2 ]
