@@ -1,12 +1,12 @@
-const useCount = (initVal = 0) => {
-  let count = initVal;
-  const get = () => count;
-  const set = x => (count = x);
+const useState = (initVal) => {
+  let val = initVal;
+  const get = () => val;
+  const set = x => (val = x);
   return { get, set };
 };
 
 const makeCounter = () => {
-  let { get, set } = useCount();
+  let { get, set } = useState(0);
 
   const inc = () => set(get() + 1);
   const dec = () => set(get() - 1);
