@@ -1,4 +1,5 @@
 const useReducer = (reducer, initState = {}) => {
+  // state is stored here
   let state = initState;
 
   // this is basically your getter and setter
@@ -8,6 +9,7 @@ const useReducer = (reducer, initState = {}) => {
   return Object.freeze({ getState, dispatch });
 };
 
+// the reducer takes in a state and an action, and returns a new state
 const reducer = (state, action) => {
   // this object defines the new state, keyed by action type
   const actions = {

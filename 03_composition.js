@@ -21,7 +21,7 @@ const makeCounter = () => {
 // create the counter object
 const myCounter = makeCounter();
 
-// let's test our counter out
+// let's test our counter
 console.log(myCounter.get()); // 0
 myCounter.inc();
 myCounter.inc();
