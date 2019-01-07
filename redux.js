@@ -1,27 +1,25 @@
 const useReducer = (reducer, initState = {}) => {
   let state = initState;
 
-  // type getState: () => state
+  // this is basically your getter and setter
   const getState = () => state;
-
-  // type dispatch: action => ()
   const dispatch = action => (state = reducer(state, action));
 
   return Object.freeze({ getState, dispatch });
 };
 
-const makeCounter = () => {
-  // type reducer: (state, action) => state
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case "increment":
-        return { count: state.count + 1 };
-      case "decrement":
-        return { count: state.count - 1 };
-      default:
-        return state;
-    }
+const reducer = (state, action) => {
+  // this object defines the new state, keyed by action type
+  const actions = {
+    increment: { count: state.count + 1 },
+    decrement: { count: state.count - 1 },
   };
+
+  // return new state, or old state if action does not exist
+  return actions[action.type] || state;
+};
+
+const makeCounter = () => {
   const { getState, dispatch } = useReducer(reducer, { count: 0 });
 
   const get = () => getState().count;
