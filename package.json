@@ -1,0 +1,24 @@
+{
+  "name": "js-state-encapsulation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "01_intro.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adrianmcli/js-state-encapsulation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adrianmcli/js-state-encapsulation/issues"
+  },
+  "homepage": "https://github.com/adrianmcli/js-state-encapsulation#readme",
+  "devDependencies": {
+    "jest": "^23.6.0"
+  }
+}

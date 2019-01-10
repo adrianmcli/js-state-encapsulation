@@ -1,4 +1,4 @@
-const useReducer = (reducer, initState = {}) => {
+const createStore = (reducer, initState) => {
   // state is stored here
   let state = initState;
 
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
 };
 
 const makeCounter = () => {
-  const { getState, dispatch } = useReducer(reducer, { count: 0 });
+  const { getState, dispatch } = createStore(reducer, { count: 0 });
 
   const get = () => getState().count;
   const inc = () => dispatch({ type: "increment" });
@@ -31,12 +31,18 @@ const makeCounter = () => {
   return Object.freeze({ get, inc, dec });
 };
 
-const myCounter = makeCounter();
+// const myCounter = makeCounter();
 
-console.log(myCounter.get()); // 0
-myCounter.inc();
-myCounter.inc();
-console.log(myCounter.get()); // 2
-myCounter.dec();
-myCounter.dec();
-console.log(myCounter.get()); // 0
+// console.log(myCounter.get()); // 0
+// myCounter.inc();
+// myCounter.inc();
+// console.log(myCounter.get()); // 2
+// myCounter.dec();
+// myCounter.dec();
+// console.log(myCounter.get()); // 0
+
+module.exports = {
+  createStore,
+  reducer,
+  makeCounter,
+};
