@@ -32,18 +32,8 @@ const makeObj3 = initVal => {
   };
 };
 
-// instantiate objects
-const x = new MyObj1(0);
-const y = makeObj2(0);
-const z = makeObj3(0);
-
-// log initial values
-console.log([x.myVal, y.myVal, z.get()]); // [ 0, 0, 0 ]
-
-// call set method on all 3 objects
-x.set(2);
-y.set(2);
-z.set(2);
-
-// inspect object values
-console.log([x.myVal, y.myVal, z.get()]); // [ 2, 2, 2 ]
+module.exports = {
+  MyObj1,
+  makeObj2,
+  makeObj3,
+};
