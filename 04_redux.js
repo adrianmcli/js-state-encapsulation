@@ -31,16 +31,6 @@ const makeCounter = () => {
   return Object.freeze({ get, inc, dec });
 };
 
-// const myCounter = makeCounter();
-
-// console.log(myCounter.get()); // 0
-// myCounter.inc();
-// myCounter.inc();
-// console.log(myCounter.get()); // 2
-// myCounter.dec();
-// myCounter.dec();
-// console.log(myCounter.get()); // 0
-
 module.exports = {
   createStore,
   reducer,
