@@ -18,8 +18,7 @@ const countReducer = (state = 0, action = {}) => {
   };
 
   // if action exists, return new state, otherwise return old state
-  const newState = actions[action.type];
-  return newState !== undefined ? newState : state;
+  return action.type in actions ? actions[action.type] : state;
 };
 
 const makeCounter = () => {
