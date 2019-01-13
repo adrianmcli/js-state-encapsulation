@@ -2,23 +2,23 @@ const { createStore, countReducer, makeCounter } = require("./04_redux");
 
 describe("redux counter tests", () => {
   test("createStore", () => {
-    const reducer = (state, action) =>
-      action.type === "increment" ? state + 1 : state;
+    const reducer = (state = 0, action = {}) =>
+      action.type === "INCREMENT" ? state + 1 : state;
 
-    const { getState, dispatch } = createStore(reducer, 0);
+    const { getState, dispatch } = createStore(reducer);
 
     expect(getState()).toBe(0);
-    dispatch({ type: "increment" });
+    dispatch({ type: "INCREMENT" });
     expect(getState()).toBe(1);
   });
 
   test("countReducer", () => {
-    const result1 = countReducer({ count: 0 }, { type: "increment" });
-    const result2 = countReducer({ count: 0 }, { type: "decrement" });
-    const result3 = countReducer({ count: 0 }, { type: "bad action" });
-    expect(result1).toEqual({ count: 1 });
-    expect(result2).toEqual({ count: -1 });
-    expect(result3).toEqual({ count: 0 });
+    const result1 = countReducer(0, { type: "INCREMENT" });
+    const result2 = countReducer(0, { type: "DECREMENT" });
+    const result3 = countReducer(0, { type: "BAD_ACTION" });
+    expect(result1).toEqual(1);
+    expect(result2).toEqual(-1);
+    expect(result3).toEqual(0);
   });
 
   test("makeCounter", () => {
