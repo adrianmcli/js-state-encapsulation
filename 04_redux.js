@@ -1,5 +1,5 @@
 const createStore = reducer => {
-  // state is stored here
+  // state is stored here, run reducer once for initial state
   let state = reducer();
 
   // this is basically your getter and setter
