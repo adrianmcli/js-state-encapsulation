@@ -1,4 +1,4 @@
-const { createStore, reducer, makeCounter } = require("./04_redux");
+const { createStore, countReducer, makeCounter } = require("./04_redux");
 
 describe("redux counter tests", () => {
   test("createStore", () => {
@@ -12,10 +12,10 @@ describe("redux counter tests", () => {
     expect(getState()).toBe(1);
   });
 
-  test("reducer", () => {
-    const result1 = reducer({ count: 0 }, { type: "increment" });
-    const result2 = reducer({ count: 0 }, { type: "decrement" });
-    const result3 = reducer({ count: 0 }, { type: "bad action" });
+  test("countReducer", () => {
+    const result1 = countReducer({ count: 0 }, { type: "increment" });
+    const result2 = countReducer({ count: 0 }, { type: "decrement" });
+    const result3 = countReducer({ count: 0 }, { type: "bad action" });
     expect(result1).toEqual({ count: 1 });
     expect(result2).toEqual({ count: -1 });
     expect(result3).toEqual({ count: 0 });

@@ -10,7 +10,7 @@ const createStore = (reducer, initState) => {
 };
 
 // the reducer takes in a state and an action, and returns a new state
-const reducer = (state, action) => {
+const countReducer = (state, action) => {
   // this object defines the new state, keyed by action type
   const actions = {
     increment: { count: state.count + 1 },
@@ -22,7 +22,7 @@ const reducer = (state, action) => {
 };
 
 const makeCounter = () => {
-  const { getState, dispatch } = createStore(reducer, { count: 0 });
+  const { getState, dispatch } = createStore(countReducer, { count: 0 });
 
   const get = () => getState().count;
   const inc = () => dispatch({ type: "increment" });
@@ -33,6 +33,6 @@ const makeCounter = () => {
 
 module.exports = {
   createStore,
-  reducer,
+  countReducer,
   makeCounter,
 };
